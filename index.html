@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数独 Sudoku</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>数独 Sudoku</h1>
+    <div class="controls">
+      <button id="new-easy">新局(简单)</button>
+      <button id="new-medium">新局(中等)</button>
+      <button id="new-hard">新局(困难)</button>
+      <button id="solve">自动求解</button>
+      <button id="check">检查</button>
+      <button id="clear">清空</button>
+    </div>
+    <div class="workspace">
+      <div id="board" class="board"></div>
+      <aside class="sidebar" id="sidebar">
+        <h2>剩余数字</h2>
+        <ul class="counts" id="counts"></ul>
+      </aside>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

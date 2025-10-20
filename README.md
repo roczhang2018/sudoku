@@ -1,2 +1,14 @@
-# sudoku
-the algorithm for sudoku
+# 数独 Sudoku
+
+本项目是一个零依赖的原生 Web 数独游戏，包含：
+- 网格交互：点击输入 1-9，自动校验冲突
+- 自动求解：回溯算法
+- 题目生成：保证唯一解，难度可选
+
+## 本地运行
+直接用浏览器打开 `index.html` 即可。
+
+## 结构
+- `index.html`：页面结构
+- `style.css`：样式
+- `main.js`：逻辑（UI/校验/求解/生成）
