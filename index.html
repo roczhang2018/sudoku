@@ -3,29 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>数独 Sudoku</title>
+  <title>贪吃蛇 Snake</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app">
-    <h1>数独 Sudoku</h1>
+    <h1>贪吃蛇 Snake</h1>
     <div class="controls">
-      <button id="new-easy">新局(简单)</button>
-      <button id="new-medium">新局(中等)</button>
-      <button id="new-hard">新局(困难)</button>
-      <button id="solve">自动求解</button>
-      <button id="check">检查</button>
-      <button id="clear">清空</button>
+      <button id="start">开始游戏</button>
+      <button id="pause">暂停</button>
+      <button id="restart">重新开始</button>
+      <select id="difficulty">
+        <option value="easy">简单</option>
+        <option value="medium" selected>中等</option>
+        <option value="hard">困难</option>
+      </select>
     </div>
-    <div class="workspace">
-      <div id="board" class="board"></div>
-      <aside class="sidebar" id="sidebar">
-        <h2>剩余数字</h2>
-        <ul class="counts" id="counts"></ul>
-      </aside>
+    <div class="speed-control">
+      <label for="speedSlider">游戏速度:</label>
+      <input type="range" id="speedSlider" min="30" max="500" value="120" step="10">
+      <span id="speedValue">120ms</span>
     </div>
-    <div class="status" id="status"></div>
+    <div class="game-area">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      <div class="score-panel">
+        <div class="score-item">
+          <span>当前分数:</span>
+          <span id="currentScore">0</span>
+        </div>
+        <div class="score-item">
+          <span>最高分:</span>
+          <span id="highScore">0</span>
+        </div>
+      </div>
+    </div>
+    <div class="status" id="status">按开始游戏开始，使用方向键控制</div>
   </div>
   <script src="main.js"></script>
 </body>
