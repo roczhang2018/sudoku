@@ -154,6 +154,10 @@ export class SnakeGame {
   toggleInfiniteMode() {
     this.gameState.toggleInfiniteMode();
     this.uiManager.updateInfiniteButton(this.gameState.getInfiniteMode());
+    
+    // 清理棋盘并重新生成食物
+    this.clearBoard();
+    
     this.updateUI();
   }
 
@@ -278,6 +282,14 @@ export class SnakeGame {
       
       this.updateUI();
     }
+  }
+
+  // 清理棋盘（切换模式时使用）
+  clearBoard() {
+    // 清理所有食物
+    this.foodManager.clearAllFoods();
+    // 重新生成食物（根据当前模式）
+    this.foodManager.generateFood(this.playerSnake, this.gameState.getInfiniteMode() ? this.aiSnake : null);
   }
 
   // 重置游戏
