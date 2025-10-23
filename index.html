@@ -26,11 +26,15 @@
       <span id="speedValue">120ms</span>
     </div>
     <div class="game-area">
-      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      <canvas id="gameCanvas" width="800" height="400"></canvas>
       <div class="score-panel">
         <div class="score-item">
-          <span>当前分数:</span>
+          <span>玩家分数:</span>
           <span id="currentScore">0</span>
+        </div>
+        <div class="score-item">
+          <span>AI分数:</span>
+          <span id="aiScore">0</span>
         </div>
         <div class="score-item">
           <span>最高分:</span>
@@ -42,7 +46,7 @@
         </div>
       </div>
     </div>
-    <div class="status" id="status">欢迎来到贪吃蛇！音乐已开始播放，按开始游戏开始，使用方向键控制。边界可循环穿越！</div>
+    <div class="status" id="status">欢迎来到贪吃蛇对战！音乐已开始播放，按开始游戏开始，使用方向键控制。与AI蛇比赛！棋盘上有3-5个食物，全部吃完后重新分配！边界可循环穿越！</div>
     <div class="audio-controls">
       <button id="musicToggle">🎵 Family Song: 开</button>
       <button id="soundToggle">🔊 音效: 开</button>

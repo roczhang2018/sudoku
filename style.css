@@ -1,6 +1,6 @@
 *{box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";margin:0;padding:24px;background:#fafafa;color:#222}
-#app{max-width:500px;margin:0 auto;text-align:center}
+#app{max-width:900px;margin:0 auto;text-align:center}
 .controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;justify-content:center}
 .controls button{padding:8px 16px;border:1px solid #ccc;background:#fff;border-radius:6px;cursor:pointer;font-size:14px}
 .controls button:hover{background:#f3f3f3}
@@ -14,7 +14,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Aria
 #speedValue{font-size:14px;font-weight:bold;color:#333;min-width:50px;text-align:center}
 .game-area{display:flex;flex-direction:column;align-items:center;gap:16px}
 #gameCanvas{border:2px solid #333;background:#fff;border-radius:8px}
-.score-panel{display:flex;gap:16px;justify-content:center;background:#fff;border:1px solid #ddd;border-radius:8px;padding:12px;min-width:350px}
+.score-panel{display:flex;gap:12px;justify-content:center;background:#fff;border:1px solid #ddd;border-radius:8px;padding:12px;min-width:500px;flex-wrap:wrap}
 .score-item{display:flex;flex-direction:column;align-items:center;gap:4px}
 .score-item span:first-child{font-size:14px;color:#666}
 .score-item span:last-child{font-size:20px;font-weight:bold;color:#333}

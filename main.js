@@ -1,9 +1,11 @@
 'use strict';
 
 // 游戏配置
-const GRID_SIZE = 20;
-const CANVAS_SIZE = 400;
-const CELL_SIZE = CANVAS_SIZE / GRID_SIZE;
+const GRID_WIDTH = 40; // 宽度扩大一倍
+const GRID_HEIGHT = 20; // 高度保持不变
+const CANVAS_WIDTH = 800; // 宽度扩大一倍
+const CANVAS_HEIGHT = 400; // 高度保持不变
+const CELL_SIZE = 20; // 每个格子大小
 
 // 游戏状态
 const GAME_STATES = {
@@ -33,13 +35,18 @@ let gameState = GAME_STATES.NOT_STARTED;
 let gameLoop = null;
 let currentDirection = DIRECTIONS.RIGHT;
 let nextDirection = DIRECTIONS.RIGHT;
-let snake = [{ x: 10, y: 10 }];
-let food = { x: 15, y: 15 };
+let snake = [{ x: 10, y: 10 }]; // 玩家蛇
+let aiSnake = [{ x: 30, y: 10 }]; // AI蛇
+let aiDirection = DIRECTIONS.LEFT;
+let aiNextDirection = DIRECTIONS.LEFT;
+let foods = []; // 多个食物数组
 let score = 0;
+let aiScore = 0;
 let highScore = 0;
 let currentSpeed = 120;
 let difficulty = 'medium';
-let snakeColor = '#4CAF50'; // 当前蛇身颜色
+let snakeColor = '#4CAF50'; // 玩家蛇身颜色
+let aiSnakeColor = '#FF5722'; // AI蛇身颜色
 let colorIndex = 0; // 颜色索引
 let lives = 3; // 生命数
 
@@ -78,6 +85,7 @@ const difficultySelect = document.getElementById('difficulty');
 const speedSlider = document.getElementById('speedSlider');
 const speedValue = document.getElementById('speedValue');
 const currentScoreEl = document.getElementById('currentScore');
+const aiScoreEl = document.getElementById('aiScore');
 const highScoreEl = document.getElementById('highScore');
 const livesEl = document.getElementById('lives');
 const statusEl = document.getElementById('status');
@@ -245,22 +253,23 @@ function toggleInfiniteMode() {
 function updateStatusText() {
   const modeText = infiniteMode ? '边界可循环穿越！' : '经典模式，撞墙会死亡！';
   
-  switch (gameState) {
-    case GAME_STATES.NOT_STARTED:
-      statusEl.textContent = `欢迎来到贪吃蛇！音乐已开始播放，按开始游戏开始，使用方向键控制。${modeText}`;
-      break;
-    case GAME_STATES.PLAYING:
-      statusEl.textContent = `游戏进行中，使用方向键控制，空格键暂停。${modeText}`;
-      break;
+    switch (gameState) {
+      case GAME_STATES.NOT_STARTED:
+        statusEl.textContent = `欢迎来到贪吃蛇对战！音乐已开始播放，按开始游戏开始，使用方向键控制。与AI蛇比赛！棋盘上有3-5个食物，全部吃完后重新分配！${modeText}`;
+        break;
+      case GAME_STATES.PLAYING:
+        statusEl.textContent = `游戏进行中，使用方向键控制，空格键暂停。与AI蛇比赛！当前有${foods.length}个食物！${modeText}`;
+        break;
     case GAME_STATES.PAUSED:
       if (lives < 3) {
-        statusEl.textContent = `失去一条生命！剩余生命：${lives}，点击继续重新开始。${modeText}`;
+        statusEl.textContent = `失去一条生命！剩余生命：${lives}，点击继续重新开始。与AI蛇比赛！${modeText}`;
       } else {
-        statusEl.textContent = `游戏已暂停，点击继续或按空格键继续。${modeText}`;
+        statusEl.textContent = `游戏已暂停，点击继续或按空格键继续。与AI蛇比赛！${modeText}`;
       }
       break;
     case GAME_STATES.GAME_OVER:
-      statusEl.textContent = `游戏结束！最终分数：${score}，最高分：${highScore}。${modeText}`;
+      const winner = score > aiScore ? '玩家获胜！' : score < aiScore ? 'AI获胜！' : '平局！';
+      statusEl.textContent = `游戏结束！${winner} 玩家：${score}，AI：${aiScore}，最高分：${highScore}。${modeText}`;
       break;
   }
 }
@@ -410,10 +419,14 @@ function stopBackgroundMusic() {
 
 // 重置游戏
 function resetGame() {
-  snake = [{ x: 10, y: 10 }];
+  snake = [{ x: 10, y: 10 }]; // 玩家蛇在左侧
+  aiSnake = [{ x: 30, y: 10 }]; // AI蛇在右侧
   currentDirection = DIRECTIONS.RIGHT;
   nextDirection = DIRECTIONS.RIGHT;
+  aiDirection = DIRECTIONS.LEFT;
+  aiNextDirection = DIRECTIONS.LEFT;
   score = 0;
+  aiScore = 0;
   lives = 3; // 重置生命数
   colorIndex = 0;
   snakeColor = SNAKE_COLORS[0]; // 重置为第一个颜色
@@ -427,12 +440,37 @@ function resetGame() {
 
 // 生成食物
 function generateFood() {
-  do {
-    food = {
-      x: Math.floor(Math.random() * GRID_SIZE),
-      y: Math.floor(Math.random() * GRID_SIZE)
-    };
-  } while (snake.some(segment => segment.x === food.x && segment.y === food.y));
+  foods = []; // 清空现有食物
+  
+  // 生成3-5个食物
+  const foodCount = Math.floor(Math.random() * 3) + 3; // 3-5个食物
+  
+  for (let i = 0; i < foodCount; i++) {
+    let newFood;
+    let attempts = 0;
+    const maxAttempts = 100; // 防止无限循环
+    
+    do {
+      newFood = {
+        x: Math.floor(Math.random() * GRID_WIDTH),
+        y: Math.floor(Math.random() * GRID_HEIGHT),
+        id: Date.now() + i // 给每个食物一个唯一ID
+      };
+      attempts++;
+    } while (
+      attempts < maxAttempts && (
+        // 检查是否与蛇身重叠
+        snake.some(segment => segment.x === newFood.x && segment.y === newFood.y) ||
+        aiSnake.some(segment => segment.x === newFood.x && segment.y === newFood.y) ||
+        // 检查是否与其他食物重叠
+        foods.some(food => food.x === newFood.x && food.y === newFood.y)
+      )
+    );
+    
+    if (attempts < maxAttempts) {
+      foods.push(newFood);
+    }
+  }
 }
 
 // 改变蛇身颜色
@@ -460,6 +498,99 @@ function darkenColor(color, amount) {
   return `#${newR.toString(16).padStart(2, '0')}${newG.toString(16).padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
 }
 
+// AI蛇移动逻辑
+function moveAISnake() {
+  // 简单的AI逻辑：朝向最近的食物移动
+  const currentAiHead = aiSnake[0];
+  
+  // 找到最近的食物
+  let nearestFood = null;
+  let minDistance = Infinity;
+  
+  foods.forEach(food => {
+    const distance = Math.abs(food.x - currentAiHead.x) + Math.abs(food.y - currentAiHead.y);
+    if (distance < minDistance) {
+      minDistance = distance;
+      nearestFood = food;
+    }
+  });
+  
+  if (!nearestFood) return; // 没有食物时不动
+  
+  const dx = nearestFood.x - currentAiHead.x;
+  const dy = nearestFood.y - currentAiHead.y;
+  
+  // 选择移动方向
+  if (Math.abs(dx) > Math.abs(dy)) {
+    // 水平移动
+    if (dx > 0 && aiDirection !== DIRECTIONS.LEFT) {
+      aiNextDirection = DIRECTIONS.RIGHT;
+    } else if (dx < 0 && aiDirection !== DIRECTIONS.RIGHT) {
+      aiNextDirection = DIRECTIONS.LEFT;
+    }
+  } else {
+    // 垂直移动
+    if (dy > 0 && aiDirection !== DIRECTIONS.UP) {
+      aiNextDirection = DIRECTIONS.DOWN;
+    } else if (dy < 0 && aiDirection !== DIRECTIONS.DOWN) {
+      aiNextDirection = DIRECTIONS.UP;
+    }
+  }
+  
+  // 更新AI方向
+  aiDirection = aiNextDirection;
+  
+  // 计算AI新头部位置
+  const newAiHead = { ...aiSnake[0] };
+  newAiHead.x += aiDirection.x;
+  newAiHead.y += aiDirection.y;
+  
+  // 根据无限循环模式处理AI边界
+  if (infiniteMode) {
+    if (newAiHead.x < 0) {
+      newAiHead.x = GRID_WIDTH - 1;
+    } else if (newAiHead.x >= GRID_WIDTH) {
+      newAiHead.x = 0;
+    }
+    
+    if (newAiHead.y < 0) {
+      newAiHead.y = GRID_HEIGHT - 1;
+    } else if (newAiHead.y >= GRID_HEIGHT) {
+      newAiHead.y = 0;
+    }
+  } else {
+    // 经典模式 - AI撞墙会重置位置
+    if (newAiHead.x < 0 || newAiHead.x >= GRID_WIDTH || newAiHead.y < 0 || newAiHead.y >= GRID_HEIGHT) {
+      aiSnake = [{ x: 30, y: 10 }];
+      return;
+    }
+  }
+  
+  // 检查AI自身碰撞
+  if (aiSnake.some(segment => segment.x === newAiHead.x && segment.y === newAiHead.y)) {
+    aiSnake = [{ x: 30, y: 10 }];
+    return;
+  }
+  
+  // 添加AI新头部
+  aiSnake.unshift(newAiHead);
+  
+  // 检查AI是否吃到食物
+  const eatenFoodIndex = foods.findIndex(food => food.x === newAiHead.x && food.y === newAiHead.y);
+  if (eatenFoodIndex !== -1) {
+    aiScore += 10;
+    foods.splice(eatenFoodIndex, 1); // 移除被吃掉的食物
+    
+    // 如果所有食物都被吃掉，生成新食物
+    if (foods.length === 0) {
+      generateFood();
+    }
+  } else {
+    // 移除AI尾部
+    aiSnake.pop();
+  }
+}
+
 // 游戏主循环
 function gameStep() {
   if (gameState !== GAME_STATES.PLAYING) return;
@@ -476,14 +607,14 @@ function gameStep() {
   if (infiniteMode) {
     // 无限循环模式 - 从一边出来从另一边进入
     if (head.x < 0) {
-      head.x = GRID_SIZE - 1; // 从右边出来
-    } else if (head.x >= GRID_SIZE) {
+      head.x = GRID_WIDTH - 1; // 从右边出来
+    } else if (head.x >= GRID_WIDTH) {
       head.x = 0; // 从左边出来
     }
     
     if (head.y < 0) {
-      head.y = GRID_SIZE - 1; // 从下边出来
-    } else if (head.y >= GRID_SIZE) {
+      head.y = GRID_HEIGHT - 1; // 从下边出来
+    } else if (head.y >= GRID_HEIGHT) {
       head.y = 0; // 从上边出来
     }
     
@@ -504,12 +635,18 @@ function gameStep() {
   snake.unshift(head);
   
   // 检查是否吃到食物
-  if (head.x === food.x && head.y === food.y) {
+  const eatenFoodIndex = foods.findIndex(food => food.x === head.x && food.y === head.y);
+  if (eatenFoodIndex !== -1) {
     score += 10;
     updateScore();
     changeSnakeColor(); // 改变蛇身颜色
     playSound(800, 0.2, 'square'); // 吃到食物音效
-    generateFood();
+    foods.splice(eatenFoodIndex, 1); // 移除被吃掉的食物
+    
+    // 如果所有食物都被吃掉，生成新食物
+    if (foods.length === 0) {
+      generateFood();
+    }
     
     // 增加速度（基于当前速度设置）
     const config = DIFFICULTY_CONFIG[difficulty];
@@ -526,13 +663,16 @@ function gameStep() {
     snake.pop();
   }
   
+  // 移动AI蛇
+  moveAISnake();
+  
   render();
 }
 
 // 检查碰撞（经典模式）
 function checkCollision(head) {
   // 检查墙壁碰撞
-  if (head.x < 0 || head.x >= GRID_SIZE || head.y < 0 || head.y >= GRID_SIZE) {
+  if (head.x < 0 || head.x >= GRID_WIDTH || head.y < 0 || head.y >= GRID_HEIGHT) {
     return true;
   }
   
@@ -556,8 +696,11 @@ function gameOver() {
     
     // 重置蛇的位置和方向
     snake = [{ x: 10, y: 10 }];
+    aiSnake = [{ x: 30, y: 10 }];
     currentDirection = DIRECTIONS.RIGHT;
     nextDirection = DIRECTIONS.RIGHT;
+    aiDirection = DIRECTIONS.LEFT;
+    aiNextDirection = DIRECTIONS.LEFT;
     generateFood();
     
     // 重置颜色
@@ -623,21 +766,27 @@ function handleKeyPress(e) {
 function render() {
   // 清空画布
   ctx.fillStyle = '#fff';
-  ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+  ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   
   // 绘制网格
   ctx.strokeStyle = '#f0f0f0';
   ctx.lineWidth = 1;
-  for (let i = 0; i <= GRID_SIZE; i++) {
+  
+  // 绘制垂直网格线
+  for (let i = 0; i <= GRID_WIDTH; i++) {
     const pos = i * CELL_SIZE;
     ctx.beginPath();
     ctx.moveTo(pos, 0);
-    ctx.lineTo(pos, CANVAS_SIZE);
+    ctx.lineTo(pos, CANVAS_HEIGHT);
     ctx.stroke();
-    
+  }
+  
+  // 绘制水平网格线
+  for (let i = 0; i <= GRID_HEIGHT; i++) {
+    const pos = i * CELL_SIZE;
     ctx.beginPath();
     ctx.moveTo(0, pos);
-    ctx.lineTo(CANVAS_SIZE, pos);
+    ctx.lineTo(CANVAS_WIDTH, pos);
     ctx.stroke();
   }
   
@@ -649,7 +798,7 @@ function render() {
     
     // 左右边界箭头
     const arrowSize = 8;
-    for (let i = 0; i < GRID_SIZE; i += 4) {
+    for (let i = 0; i < GRID_HEIGHT; i += 4) {
       const y = i * CELL_SIZE + CELL_SIZE / 2;
       
       // 左边界箭头 (→)
@@ -662,15 +811,15 @@ function render() {
       
       // 右边界箭头 (←)
       ctx.beginPath();
-      ctx.moveTo(CANVAS_SIZE - 5, y);
-      ctx.lineTo(CANVAS_SIZE - 5 - arrowSize, y - arrowSize/2);
-      ctx.lineTo(CANVAS_SIZE - 5 - arrowSize, y + arrowSize/2);
+      ctx.moveTo(CANVAS_WIDTH - 5, y);
+      ctx.lineTo(CANVAS_WIDTH - 5 - arrowSize, y - arrowSize/2);
+      ctx.lineTo(CANVAS_WIDTH - 5 - arrowSize, y + arrowSize/2);
       ctx.closePath();
       ctx.fill();
     }
     
     // 上下边界箭头
-    for (let i = 0; i < GRID_SIZE; i += 4) {
+    for (let i = 0; i < GRID_WIDTH; i += 8) {
       const x = i * CELL_SIZE + CELL_SIZE / 2;
       
       // 上边界箭头 (↓)
@@ -683,15 +832,15 @@ function render() {
       
       // 下边界箭头 (↑)
       ctx.beginPath();
-      ctx.moveTo(x, CANVAS_SIZE - 5);
-      ctx.lineTo(x - arrowSize/2, CANVAS_SIZE - 5 - arrowSize);
-      ctx.lineTo(x + arrowSize/2, CANVAS_SIZE - 5 - arrowSize);
+      ctx.moveTo(x, CANVAS_HEIGHT - 5);
+      ctx.lineTo(x - arrowSize/2, CANVAS_HEIGHT - 5 - arrowSize);
+      ctx.lineTo(x + arrowSize/2, CANVAS_HEIGHT - 5 - arrowSize);
       ctx.closePath();
       ctx.fill();
     }
   }
   
-  // 绘制蛇
+  // 绘制玩家蛇
   snake.forEach((segment, index) => {
     if (index === 0) {
       // 蛇头 - 使用更深的颜色
@@ -710,19 +859,45 @@ function render() {
     );
   });
   
-  // 绘制食物
-  ctx.fillStyle = '#FF5722';
-  ctx.fillRect(
-    food.x * CELL_SIZE + 2,
-    food.y * CELL_SIZE + 2,
-    CELL_SIZE - 4,
-    CELL_SIZE - 4
-  );
+  // 绘制AI蛇
+  aiSnake.forEach((segment, index) => {
+    if (index === 0) {
+      // AI蛇头 - 使用更深的颜色
+      const aiHeadColor = darkenColor(aiSnakeColor, 0.3);
+      ctx.fillStyle = aiHeadColor;
+    } else {
+      // AI蛇身 - 使用AI颜色
+      ctx.fillStyle = aiSnakeColor;
+    }
+    
+    ctx.fillRect(
+      segment.x * CELL_SIZE + 1,
+      segment.y * CELL_SIZE + 1,
+      CELL_SIZE - 2,
+      CELL_SIZE - 2
+    );
+  });
+  
+  // 绘制多个食物
+  foods.forEach((food, index) => {
+    // 使用不同颜色区分食物
+    const colors = ['#FF9800', '#FF5722', '#4CAF50', '#2196F3', '#9C27B0'];
+    const foodColor = colors[index % colors.length];
+    
+    ctx.fillStyle = foodColor;
+    ctx.fillRect(
+      food.x * CELL_SIZE + 2,
+      food.y * CELL_SIZE + 2,
+      CELL_SIZE - 4,
+      CELL_SIZE - 4
+    );
+  });
 }
 
 // 更新分数
 function updateScore() {
   currentScoreEl.textContent = score;
+  aiScoreEl.textContent = aiScore;
 }
 
 // 更新UI
@@ -759,6 +934,7 @@ function updateUI() {
   
   // 更新分数显示
   currentScoreEl.textContent = score;
+  aiScoreEl.textContent = aiScore;
   highScoreEl.textContent = highScore;
   livesEl.textContent = lives;
   
