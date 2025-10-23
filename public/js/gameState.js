@@ -9,8 +9,14 @@ export class GameState {
     this.gameLoop = null;
     this.currentDirection = DIRECTIONS.RIGHT;
     this.nextDirection = DIRECTIONS.RIGHT;
-    this.snake = [{ x: 10, y: 10 }]; // 玩家蛇
-    this.aiSnake = [{ x: 30, y: 10 }]; // AI蛇
+    this.snake = [
+      { x: 10, y: 10 },
+      { x: 9, y: 10 }  // 玩家蛇最小长度为2节
+    ];
+    this.aiSnake = [
+      { x: 30, y: 10 },
+      { x: 29, y: 10 } // AI蛇最小长度为2节
+    ];
     this.aiDirection = DIRECTIONS.LEFT;
     this.aiNextDirection = DIRECTIONS.LEFT;
     this.score = 0;
@@ -32,8 +38,14 @@ export class GameState {
 
   // 重置游戏状态
   reset() {
-    this.snake = [{ x: 10, y: 10 }]; // 玩家蛇在左侧
-    this.aiSnake = [{ x: 30, y: 10 }]; // AI蛇在右侧
+    this.snake = [
+      { x: 10, y: 10 },
+      { x: 9, y: 10 }  // 玩家蛇在左侧，最小长度为2节
+    ];
+    this.aiSnake = [
+      { x: 30, y: 10 },
+      { x: 29, y: 10 } // AI蛇在右侧，最小长度为2节
+    ];
     this.currentDirection = DIRECTIONS.RIGHT;
     this.nextDirection = DIRECTIONS.RIGHT;
     this.aiDirection = DIRECTIONS.LEFT;

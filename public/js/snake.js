@@ -81,7 +81,11 @@ export class Snake {
 
   // 重置蛇的位置
   reset(x, y) {
-    this.segments = [{ x, y }];
+    // 贪吃蛇最小长度为2节
+    this.segments = [
+      { x, y },
+      { x: x - 1, y } // 第二节在第一节左侧
+    ];
     this.direction = DIRECTIONS.RIGHT;
     this.nextDirection = DIRECTIONS.RIGHT;
   }
