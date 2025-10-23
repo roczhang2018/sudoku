@@ -8,6 +8,12 @@
 - [部署指南](./deployment.md) - 完整的部署方案和步骤
 - [API文档](./api.md) - 详细的API接口说明
 
+### 🏗️ 设计文档
+- [系统架构](./architecture.md) - 整体系统架构设计
+- [前端设计](./frontend-design.md) - 前端架构和实现细节
+- [后端设计](./backend-design.md) - 后端架构和实现细节
+- [技术栈对比](./tech-stack.md) - 技术选型对比和分析
+
 ### 🏗️ 架构说明
 
 本项目采用Node.js统一服务架构，前后端整合在一个服务中：
