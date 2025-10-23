@@ -222,3 +222,97 @@
 {"ip":"172.20.10.4","level":"info","message":"GET /index.html","service":"snake-game","timestamp":"2025-10-23T10:52:23.955Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
 {"ip":"127.0.0.1","level":"info","message":"GET /health","service":"snake-game","timestamp":"2025-10-23T10:56:04.174Z","userAgent":"curl/8.6.0"}
 {"ip":"127.0.0.1","level":"info","message":"GET /health","service":"snake-game","timestamp":"2025-10-23T10:56:09.716Z","userAgent":"curl/8.6.0"}
+{"level":"info","message":"Server running on http://0.0.0.0:80","service":"snake-game","timestamp":"2025-10-23T10:58:44.974Z"}
+{"level":"info","message":"Environment: production","service":"snake-game","timestamp":"2025-10-23T10:58:44.983Z"}
+{"level":"info","message":"Data directory: ./data","service":"snake-game","timestamp":"2025-10-23T10:58:44.983Z"}
+{"ip":"172.20.10.4","level":"info","message":"GET /index.html","service":"snake-game","timestamp":"2025-10-23T10:58:51.145Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /index.html","service":"snake-game","timestamp":"2025-10-23T10:59:13.113Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /index.html","service":"snake-game","timestamp":"2025-10-23T11:01:50.920Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /index.html","service":"snake-game","timestamp":"2025-10-23T11:01:59.054Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /index.html","service":"snake-game","timestamp":"2025-10-23T11:02:14.894Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"level":"info","message":"SIGTERM received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:03:18.262Z"}
+{"level":"info","message":"Server running on http://0.0.0.0:80","service":"snake-game","timestamp":"2025-10-23T11:03:50.405Z"}
+{"level":"info","message":"Environment: development","service":"snake-game","timestamp":"2025-10-23T11:03:50.409Z"}
+{"level":"info","message":"Data directory: ./data","service":"snake-game","timestamp":"2025-10-23T11:03:50.409Z"}
+{"ip":"172.20.10.4","level":"info","message":"GET /index.html","service":"snake-game","timestamp":"2025-10-23T11:03:50.977Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /index.html","service":"snake-game","timestamp":"2025-10-23T11:03:55.315Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:44.251Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:44.253Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:45.069Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:45.070Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:46.218Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:46.219Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:49.467Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:49.468Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:49.943Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:49.948Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:50.143Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:50.143Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:50.361Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:04:50.361Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:00.899Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:00.900Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:01.309Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:01.309Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:01.524Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:01.524Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:01.685Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:01.685Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:01.839Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:01.839Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:02.012Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:02.013Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:02.945Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:02.946Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:03.170Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:03.171Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:03.392Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:03.392Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:03.585Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:03.586Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:03.780Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:03.781Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:03.960Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:03.961Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:04.145Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:04.146Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:04.585Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:04.585Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:04.796Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:04.796Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:04.992Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:04.992Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:05.185Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:05.186Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:05.382Z"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:05:05.383Z"}
+{"level":"info","message":"Process terminated","service":"snake-game","timestamp":"2025-10-23T11:05:15.313Z"}
+{"level":"info","message":"Server running on http://0.0.0.0:80","service":"snake-game","timestamp":"2025-10-23T11:06:02.488Z"}
+{"level":"info","message":"Environment: development","service":"snake-game","timestamp":"2025-10-23T11:06:02.492Z"}
+{"level":"info","message":"Data directory: ./data","service":"snake-game","timestamp":"2025-10-23T11:06:02.493Z"}
+{"ip":"172.20.10.4","level":"info","message":"GET /index.html","service":"snake-game","timestamp":"2025-10-23T11:06:16.826Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /index.html","service":"snake-game","timestamp":"2025-10-23T11:06:22.858Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /style.css","service":"snake-game","timestamp":"2025-10-23T11:06:22.967Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/main.js","service":"snake-game","timestamp":"2025-10-23T11:06:22.969Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/game.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.392Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/auth.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.401Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/serviceStatus.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.403Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/config.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.426Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/ui.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.428Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/gameState.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.430Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/audio.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.432Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/snake.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.434Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/food.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.435Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/renderer.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.450Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /js/api.js","service":"snake-game","timestamp":"2025-10-23T11:06:23.452Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /health","service":"snake-game","timestamp":"2025-10-23T11:06:23.563Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /favicon.svg","service":"snake-game","timestamp":"2025-10-23T11:06:23.793Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /favicon.svg","service":"snake-game","timestamp":"2025-10-23T11:06:29.107Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /health","service":"snake-game","timestamp":"2025-10-23T11:06:29.276Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /health","service":"snake-game","timestamp":"2025-10-23T11:06:30.210Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /health","service":"snake-game","timestamp":"2025-10-23T11:06:30.628Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /health","service":"snake-game","timestamp":"2025-10-23T11:06:31.247Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /health","service":"snake-game","timestamp":"2025-10-23T11:06:36.590Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /favicon.ico","service":"snake-game","timestamp":"2025-10-23T11:06:37.281Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"ip":"172.20.10.4","level":"info","message":"GET /health","service":"snake-game","timestamp":"2025-10-23T11:06:53.492Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"snake-game","timestamp":"2025-10-23T11:07:04.998Z"}

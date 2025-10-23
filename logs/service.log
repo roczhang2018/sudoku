@@ -263,3 +263,19 @@ info: Data directory: ./data {"service":"snake-game","timestamp":"2025-10-23T10:
 [2025-10-23T10:52:23.956Z] info: GET /index.html {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:52:23.955Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
 [2025-10-23T10:56:04.179Z] info: GET /health {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:56:04.174Z","userAgent":"curl/8.6.0"}
 [2025-10-23T10:56:09.717Z] info: GET /health {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:56:09.716Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:57:19.434Z] /Users/yaguangzhang/cursor/sudoku/src/websocket/WebSocketManager.js:353
+      this.logger.error('Session cleanup error:', error);
+                  ^
+
+TypeError: Cannot read properties of undefined (reading 'error')
+    at WebSocketManager.cleanupExpiredSessions (/Users/yaguangzhang/cursor/sudoku/src/websocket/WebSocketManager.js:353:19)
+
+Node.js v20.2.0
+[2025-10-23T10:58:44.983Z] info: Server running on http://0.0.0.0:80 {"service":"snake-game","timestamp":"2025-10-23T10:58:44.974Z"}
+[2025-10-23T10:58:44.986Z] info: Environment: production {"service":"snake-game","timestamp":"2025-10-23T10:58:44.983Z"}
+info: Data directory: ./data {"service":"snake-game","timestamp":"2025-10-23T10:58:44.983Z"}
+[2025-10-23T10:58:51.146Z] info: GET /index.html {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:58:51.145Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:59:13.114Z] info: GET /index.html {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:59:13.113Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T11:01:50.926Z] info: GET /index.html {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T11:01:50.920Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T11:01:59.056Z] info: GET /index.html {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T11:01:59.054Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T11:02:14.895Z] info: GET /index.html {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T11:02:14.894Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}

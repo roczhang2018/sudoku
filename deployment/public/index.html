@@ -21,6 +21,7 @@
       <button id="start">开始游戏</button>
       <button id="pause">暂停</button>
       <button id="restart">重新开始</button>
+      <button id="refreshService" class="service-btn" title="检查后端服务状态">🔄 服务状态</button>
       <select id="difficulty">
         <option value="easy">简单</option>
         <option value="medium" selected>中等</option>
@@ -31,6 +32,10 @@
       <label for="speedSlider">游戏速度:</label>
       <input type="range" id="speedSlider" min="30" max="500" value="120" step="10">
       <span id="speedValue">120ms</span>
+    </div>
+    <div class="service-status" id="serviceStatus">
+      <span class="status-indicator" id="statusIndicator">●</span>
+      <span class="status-text" id="statusText">检查服务状态...</span>
     </div>
     <div class="game-area">
       <canvas id="gameCanvas" width="800" height="400"></canvas>
