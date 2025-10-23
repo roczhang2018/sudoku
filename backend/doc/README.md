@@ -10,11 +10,8 @@
 ### 🔌 API参考
 - **[API参考文档](./api-reference.md)** - 完整的API接口说明和示例
 
-### 👤 用户指南
-- **[用户使用指南](./user-guide.md)** - 详细的用户操作说明和游戏规则
-
-### 🛠️ 开发指南
-- **[开发指南](./development-guide.md)** - 开发环境、代码规范、调试技巧等
+### 🔧 后端开发
+- **[开发指南](./development-guide.md)** - 后端开发环境、代码规范、调试技巧等
 
 ## 🚀 快速开始
 
@@ -24,9 +21,8 @@
 3. 使用 [API参考文档](./api-reference.md) 进行接口开发
 
 ### 前端开发
-1. 阅读 [开发指南](./development-guide.md) 搭建开发环境
-2. 参考 [用户指南](./user-guide.md) 了解用户体验
-3. 查看 [架构设计文档](./architecture.md) 理解前端架构
+1. 查看 [前端文档](../../frontend/doc/) 了解前端开发
+2. 参考 [架构设计文档](./architecture.md) 理解整体架构
 
 ## 📊 文档结构
 
@@ -35,8 +31,7 @@ doc/
 ├── README.md              # 文档索引（本文件）
 ├── architecture.md        # 架构设计文档
 ├── api-reference.md       # API参考文档
-├── user-guide.md         # 用户使用指南
-└── development-guide.md  # 开发指南
+└── development-guide.md  # 后端开发指南
 ```
 
 ## 🎯 文档特色
