@@ -288,6 +288,10 @@ export class SnakeGame {
   clearBoard() {
     // 清理所有食物
     this.foodManager.clearAllFoods();
+    
+    // 重置AI蛇状态（确保在非无限循环模式下AI蛇被完全移除）
+    this.aiSnake.reset(30, 10);
+    
     // 重新生成食物（根据当前模式）
     this.foodManager.generateFood(this.playerSnake, this.gameState.getInfiniteMode() ? this.aiSnake : null);
   }
