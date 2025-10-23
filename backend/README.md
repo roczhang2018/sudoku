@@ -388,6 +388,14 @@ WebSocket连接统计可通过日志查看。
 - 输入验证
 - 错误处理
 
+## 📚 相关文档
+
+- **设置指南**: [BACKEND_SETUP.md](./BACKEND_SETUP.md)
+- **架构设计**: [doc/architecture.md](./doc/architecture.md)
+- **API参考**: [doc/api-reference.md](./doc/api-reference.md)
+- **用户指南**: [doc/user-guide.md](./doc/user-guide.md)
+- **开发指南**: [doc/development-guide.md](./doc/development-guide.md)
+
 ## 📝 许可证
 
 MIT License

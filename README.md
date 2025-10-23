@@ -185,6 +185,14 @@ js/
 
 详细的开发计划和待办事项请查看 [TODO.md](./TODO.md) 文件，包含：
 
+## 📚 文档
+
+- **后端设置指南**: [backend/BACKEND_SETUP.md](./backend/BACKEND_SETUP.md)
+- **架构设计文档**: [backend/doc/architecture.md](./backend/doc/architecture.md)
+- **API参考文档**: [backend/doc/api-reference.md](./backend/doc/api-reference.md)
+- **用户使用指南**: [backend/doc/user-guide.md](./backend/doc/user-guide.md)
+- **开发指南**: [backend/doc/development-guide.md](./backend/doc/development-guide.md)
+
 - **高优先级**: 测试系统、错误处理、构建系统
 - **中优先级**: CI/CD、PWA功能、无障碍访问
 - **低优先级**: 更多游戏功能、国际化、数据分析
