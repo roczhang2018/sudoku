@@ -160,6 +160,37 @@ export class UIManager {
         e.preventDefault();
       }
     });
+    
+    // 记录相关事件
+    const showRecordsBtn = document.getElementById('showRecordsBtn');
+    if (showRecordsBtn) {
+      showRecordsBtn.addEventListener('click', () => {
+        this.showGameRecords(game);
+      });
+    }
+    
+    const closeRecordsBtn = document.getElementById('closeRecordsBtn');
+    if (closeRecordsBtn) {
+      closeRecordsBtn.addEventListener('click', () => {
+        this.hideGameRecords();
+      });
+    }
+    
+    const clearRecordsBtn = document.getElementById('clearRecordsBtn');
+    if (clearRecordsBtn) {
+      clearRecordsBtn.addEventListener('click', () => {
+        this.clearGameRecords(game);
+      });
+    }
+    
+    const recordsModal = document.getElementById('recordsModal');
+    if (recordsModal) {
+      recordsModal.addEventListener('click', (e) => {
+        if (e.target === recordsModal) {
+          this.hideGameRecords();
+        }
+      });
+    }
   }
 
   // 处理键盘输入
@@ -188,5 +219,136 @@ export class UIManager {
         }
         break;
     }
+  }
+
+  // 显示游戏记录
+  showGameRecords(game) {
+    const recordsModal = document.getElementById('recordsModal');
+    const recordsStats = document.getElementById('recordsStats');
+    const recordsList = document.getElementById('recordsList');
+    
+    if (!recordsModal || !recordsStats || !recordsList) return;
+    
+    const records = game.gameState.getGameRecords();
+    
+    // 显示统计信息
+    this.renderRecordsStats(recordsStats, records);
+    
+    // 显示记录列表
+    this.renderRecordsList(recordsList, records);
+    
+    // 显示模态框
+    recordsModal.style.display = 'flex';
+  }
+
+  // 隐藏游戏记录
+  hideGameRecords() {
+    const recordsModal = document.getElementById('recordsModal');
+    if (recordsModal) {
+      recordsModal.style.display = 'none';
+    }
+  }
+
+  // 清空游戏记录
+  clearGameRecords(game) {
+    if (confirm('确定要清空所有游戏记录吗？此操作不可恢复！')) {
+      game.gameState.clearGameRecords();
+      game.gameState.saveGameRecords();
+      this.showGameRecords(game); // 刷新显示
+    }
+  }
+
+  // 渲染记录统计
+  renderRecordsStats(container, records) {
+    if (!records || records.length === 0) {
+      container.innerHTML = '<div class="no-records">暂无游戏记录</div>';
+      return;
+    }
+
+    const totalGames = records.length;
+    const wins = records.filter(r => r.isWin).length;
+    const losses = records.filter(r => !r.isWin && r.winner === 'AI').length;
+    const ties = records.filter(r => r.winner === '平局').length;
+    const winRate = totalGames > 0 ? Math.round((wins / totalGames) * 100) : 0;
+    const avgScore = totalGames > 0 ? Math.round(records.reduce((sum, r) => sum + r.playerScore, 0) / totalGames) : 0;
+    const bestScore = Math.max(...records.map(r => r.playerScore));
+    const totalTime = records.reduce((sum, r) => sum + r.duration.seconds, 0);
+    const avgTime = totalGames > 0 ? Math.round(totalTime / totalGames) : 0;
+
+    container.innerHTML = `
+      <div class="stat-item">
+        <span class="stat-value">${totalGames}</span>
+        <span class="stat-label">总游戏数</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">${wins}</span>
+        <span class="stat-label">获胜次数</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">${winRate}%</span>
+        <span class="stat-label">胜率</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">${bestScore}</span>
+        <span class="stat-label">最高分</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">${avgScore}</span>
+        <span class="stat-label">平均分</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">${Math.floor(avgTime / 60)}:${(avgTime % 60).toString().padStart(2, '0')}</span>
+        <span class="stat-label">平均时长</span>
+      </div>
+    `;
+  }
+
+  // 渲染记录列表
+  renderRecordsList(container, records) {
+    if (!records || records.length === 0) {
+      container.innerHTML = '<div class="no-records">暂无游戏记录</div>';
+      return;
+    }
+
+    const recordsHtml = records.map(record => {
+      const winnerClass = record.isWin ? 'win' : record.winner === 'AI' ? 'lose' : 'tie';
+      
+      return `
+        <div class="record-item">
+          <div class="record-header">
+            <span class="record-time">${record.startTime}</span>
+            <span class="record-winner ${winnerClass}">${record.winner}</span>
+          </div>
+          <div class="record-details">
+            <div class="record-detail">
+              <span class="record-detail-label">模式</span>
+              <span class="record-detail-value">${record.mode}</span>
+            </div>
+            <div class="record-detail">
+              <span class="record-detail-label">难度</span>
+              <span class="record-detail-value">${record.difficulty}</span>
+            </div>
+            <div class="record-detail">
+              <span class="record-detail-label">玩家分数</span>
+              <span class="record-detail-value">${record.playerScore}</span>
+            </div>
+            <div class="record-detail">
+              <span class="record-detail-label">AI分数</span>
+              <span class="record-detail-value">${record.aiScore}</span>
+            </div>
+            <div class="record-detail">
+              <span class="record-detail-label">游戏时长</span>
+              <span class="record-detail-value">${record.duration.formatted}</span>
+            </div>
+            <div class="record-detail">
+              <span class="record-detail-label">使用生命</span>
+              <span class="record-detail-value">${record.livesUsed}/3</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    container.innerHTML = recordsHtml;
   }
 }

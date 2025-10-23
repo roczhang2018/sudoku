@@ -23,6 +23,11 @@ export class GameState {
     this.colorIndex = 0; // 颜色索引
     this.lives = 3; // 生命数
     this.infiniteMode = true; // 无限循环模式
+    
+    // 游戏记录相关
+    this.gameStartTime = null; // 游戏开始时间
+    this.gameEndTime = null; // 游戏结束时间
+    this.gameRecords = []; // 游戏记录数组
   }
 
   // 重置游戏状态
@@ -135,5 +140,79 @@ export class GameState {
   // 获取无限循环模式状态
   getInfiniteMode() {
     return this.infiniteMode;
+  }
+
+  // 开始游戏记录
+  startGameRecord() {
+    this.gameStartTime = Date.now();
+  }
+
+  // 结束游戏记录
+  endGameRecord() {
+    this.gameEndTime = Date.now();
+  }
+
+  // 创建游戏记录
+  createGameRecord() {
+    if (!this.gameStartTime || !this.gameEndTime) {
+      return null;
+    }
+
+    const duration = this.gameEndTime - this.gameStartTime;
+    const durationSeconds = Math.floor(duration / 1000);
+    const durationMinutes = Math.floor(durationSeconds / 60);
+    const remainingSeconds = durationSeconds % 60;
+
+    const record = {
+      id: Date.now().toString(),
+      startTime: new Date(this.gameStartTime).toLocaleString('zh-CN'),
+      endTime: new Date(this.gameEndTime).toLocaleString('zh-CN'),
+      duration: {
+        total: duration,
+        seconds: durationSeconds,
+        formatted: `${durationMinutes}:${remainingSeconds.toString().padStart(2, '0')}`
+      },
+      mode: this.infiniteMode ? '无限循环' : '经典模式',
+      difficulty: this.difficulty,
+      playerScore: this.score,
+      aiScore: this.aiScore,
+      winner: this.score > this.aiScore ? '玩家' : this.score < this.aiScore ? 'AI' : '平局',
+      livesUsed: 3 - this.lives,
+      isWin: this.score > this.aiScore
+    };
+
+    this.gameRecords.unshift(record); // 添加到开头，最新的在前面
+    
+    // 只保留最近50条记录
+    if (this.gameRecords.length > 50) {
+      this.gameRecords = this.gameRecords.slice(0, 50);
+    }
+
+    return record;
+  }
+
+  // 获取游戏记录
+  getGameRecords() {
+    return this.gameRecords;
+  }
+
+  // 清空游戏记录
+  clearGameRecords() {
+    this.gameRecords = [];
+  }
+
+  // 保存游戏记录到本地存储
+  saveGameRecords() {
+    localStorage.setItem('snakeGameRecords', JSON.stringify(this.gameRecords));
+  }
+
+  // 从本地存储加载游戏记录
+  loadGameRecords() {
+    try {
+      const records = localStorage.getItem('snakeGameRecords');
+      this.gameRecords = records ? JSON.parse(records) : [];
+    } catch (error) {
+      this.gameRecords = [];
+    }
   }
 }

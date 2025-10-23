@@ -36,6 +36,9 @@ export class SnakeGame {
       this.gameState.highScore = parseInt(localStorage.getItem('guestHighScore') || '0', 10);
     }
     
+    // 加载游戏记录
+    this.gameState.loadGameRecords();
+    
     this.audioManager.init();
     this.uiManager.bindEvents(this);
     
@@ -70,6 +73,7 @@ export class SnakeGame {
     if (currentState === GAME_STATES.NOT_STARTED || currentState === GAME_STATES.GAME_OVER) {
       this.resetGame();
       this.gameState.setState(GAME_STATES.PLAYING);
+      this.gameState.startGameRecord(); // 开始游戏记录
       this.startGameLoop();
       this.audioManager.playSound(440, 0.3, 'sine'); // 游戏开始音效
       if (this.audioManager.isMusicEnabled()) this.audioManager.startBackgroundMusic();
@@ -252,9 +256,17 @@ export class SnakeGame {
     } else {
       // 没有生命了，游戏真正结束
       this.gameState.setState(GAME_STATES.GAME_OVER);
+      this.gameState.endGameRecord(); // 结束游戏记录
       this.gameState.clearGameLoop();
       this.audioManager.playSound(200, 0.5, 'sawtooth'); // 游戏结束音效
       this.audioManager.stopBackgroundMusic();
+      
+      // 创建并保存游戏记录
+      const gameRecord = this.gameState.createGameRecord();
+      if (gameRecord) {
+        this.gameState.saveGameRecords();
+        console.log('游戏记录已保存:', gameRecord);
+      }
       
       // 更新最高分
       this.gameState.updateHighScore();

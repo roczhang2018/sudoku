@@ -58,6 +58,28 @@
       <button id="musicToggle">🎵 Family Song: 开</button>
       <button id="soundToggle">🔊 音效: 开</button>
       <button id="infiniteToggle">🔄 无限循环: 开</button>
+      <button id="showRecordsBtn">📊 游戏记录</button>
+    </div>
+    
+    <!-- 游戏记录模态框 -->
+    <div id="recordsModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>📊 游戏记录</h2>
+          <button id="closeRecordsBtn" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="records-stats" id="recordsStats">
+            <!-- 统计信息 -->
+          </div>
+          <div class="records-list" id="recordsList">
+            <!-- 记录列表 -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="clearRecordsBtn" class="clear-btn">清空记录</button>
+        </div>
+      </div>
     </div>
   </div>
   <script type="module" src="js/main.js"></script>
