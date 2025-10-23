@@ -14,7 +14,7 @@ const authRoutes = require('./src/routes/auth');
 const gameRoutes = require('./src/routes/game');
 const userRoutes = require('./src/routes/user');
 const WebSocketManager = require('./src/websocket/WebSocketManager');
-const authMiddleware = require('./src/middleware/auth');
+const { authMiddleware } = require('./src/middleware/auth');
 
 // 配置日志
 const logger = winston.createLogger({

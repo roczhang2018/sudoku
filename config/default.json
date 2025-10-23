@@ -1,0 +1,30 @@
+{
+  "server": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "jwt": {
+    "secret": "snake-game-super-secret-key-2024",
+    "expiresIn": "24h"
+  },
+  "storage": {
+    "dataDir": "./data",
+    "backupDir": "./backups",
+    "maxFileSize": "10MB"
+  },
+  "websocket": {
+    "heartbeatInterval": 30000,
+    "connectionTimeout": 60000,
+    "maxConnections": 1000
+  },
+  "cors": {
+    "origin": ["http://localhost:8000", "http://127.0.0.1:8000"],
+    "credentials": true
+  },
+  "logging": {
+    "level": "info",
+    "file": "./logs/app.log",
+    "maxSize": "10MB",
+    "maxFiles": 5
+  }
+}

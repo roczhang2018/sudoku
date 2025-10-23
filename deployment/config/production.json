@@ -1,0 +1,36 @@
+{
+  "server": {
+    "port": 80,
+    "host": "0.0.0.0"
+  },
+  "jwt": {
+    "secret": "production-jwt-secret-key",
+    "expiresIn": "24h"
+  },
+  "storage": {
+    "dataDir": "./data",
+    "backupDir": "./backups",
+    "maxFileSize": "10MB"
+  },
+  "websocket": {
+    "heartbeatInterval": 30000,
+    "connectionTimeout": 60000,
+    "maxConnections": 1000
+  },
+  "cors": {
+    "origin": ["*"],
+    "credentials": true
+  },
+  "logging": {
+    "level": "info",
+    "file": "./logs/app.log",
+    "maxSize": "10MB",
+    "maxFiles": 5
+  },
+  "security": {
+    "helmet": {
+      "contentSecurityPolicy": false,
+      "crossOriginEmbedderPolicy": false
+    }
+  }
+}

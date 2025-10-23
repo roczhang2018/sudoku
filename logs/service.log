@@ -1,0 +1,36 @@
+[2025-10-23T09:59:51.641Z] info: Server running on http://0.0.0.0:80 {"service":"snake-game","timestamp":"2025-10-23T09:59:51.636Z"}
+[2025-10-23T09:59:51.643Z] info: Environment: production {"service":"snake-game","timestamp":"2025-10-23T09:59:51.640Z"}
+info: Data directory: ./data {"service":"snake-game","timestamp":"2025-10-23T09:59:51.640Z"}
+[2025-10-23T10:00:16.223Z] info: GET /health {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:16.223Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:00:36.449Z] info: GET / {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:36.448Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:36.640Z] info: GET /style.css {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:36.638Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:36.641Z] info: GET /js/main.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:36.640Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:37.270Z] info: GET /js/game.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:37.269Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:37.271Z] info: GET /js/auth.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:37.270Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:37.287Z] info: GET /js/config.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:37.286Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:37.289Z] info: GET /js/gameState.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:37.288Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:37.290Z] info: GET /js/audio.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:37.290Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:37.292Z] info: GET /js/snake.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:37.291Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:37.292Z] info: GET /js/food.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:37.292Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:37.295Z] info: GET /js/renderer.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:37.294Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:37.303Z] info: GET /js/ui.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:37.303Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:37.704Z] info: GET /favicon.svg {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:37.704Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:43.165Z] info: GET /login.html {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:43.165Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:00:43.225Z] info: GET /auth.css {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:00:43.222Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:01:19.869Z] info: GET /index.html {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:01:19.868Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:02:12.809Z] info: GET /health {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:02:12.808Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:02:13.604Z] info: GET /favicon.ico {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:02:13.602Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:02:41.936Z] info: SIGTERM received, shutting down gracefully {"service":"snake-game","timestamp":"2025-10-23T10:02:41.935Z"}
+[2025-10-23T10:04:51.650Z] /Users/yaguangzhang/cursor/sudoku/src/websocket/WebSocketManager.js:353
+      this.logger.error('Session cleanup error:', error);
+                  ^
+
+TypeError: Cannot read properties of undefined (reading 'error')
+    at WebSocketManager.cleanupExpiredSessions (/Users/yaguangzhang/cursor/sudoku/src/websocket/WebSocketManager.js:353:19)
+
+Node.js v20.2.0
+[2025-10-23T10:13:48.615Z] info: Server running on http://0.0.0.0:80 {"service":"snake-game","timestamp":"2025-10-23T10:13:48.612Z"}
+[2025-10-23T10:13:48.618Z] info: Environment: production {"service":"snake-game","timestamp":"2025-10-23T10:13:48.615Z"}
+info: Data directory: ./data {"service":"snake-game","timestamp":"2025-10-23T10:13:48.615Z"}
+[2025-10-23T10:13:59.885Z] info: GET /index.html {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:13:59.884Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:14:28.361Z] info: GET /health {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:14:28.360Z","userAgent":"PostmanRuntime/7.34.0"}

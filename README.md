@@ -187,6 +187,11 @@ js/
 
 ## 📚 文档
 
+### 📖 项目文档
+- **项目文档**: [docs/README.md](./docs/README.md) - 完整的项目文档
+- **部署指南**: [docs/deployment.md](./docs/deployment.md) - 详细的部署方案
+- **API文档**: [docs/api.md](./docs/api.md) - API接口说明
+
 ### 🎮 前端文档
 - **前端说明**: [frontend/README.md](./frontend/README.md)
 - **用户使用指南**: [frontend/doc/user-guide.md](./frontend/doc/user-guide.md)
