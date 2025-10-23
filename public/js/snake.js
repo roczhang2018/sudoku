@@ -5,7 +5,11 @@ import { DIRECTIONS, GRID_WIDTH, GRID_HEIGHT } from './config.js';
 // 蛇类
 export class Snake {
   constructor(x, y, color = '#4CAF50') {
-    this.segments = [{ x, y }];
+    // 蛇的初始长度为2节
+    this.segments = [
+      { x, y },
+      { x: x - 1, y } // 第二节在第一节左侧
+    ];
     this.direction = DIRECTIONS.RIGHT;
     this.nextDirection = DIRECTIONS.RIGHT;
     this.color = color;
