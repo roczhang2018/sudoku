@@ -34,3 +34,112 @@ Node.js v20.2.0
 info: Data directory: ./data {"service":"snake-game","timestamp":"2025-10-23T10:13:48.615Z"}
 [2025-10-23T10:13:59.885Z] info: GET /index.html {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:13:59.884Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
 [2025-10-23T10:14:28.361Z] info: GET /health {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:14:28.360Z","userAgent":"PostmanRuntime/7.34.0"}
+[2025-10-23T10:16:57.265Z] info: Server running on http://0.0.0.0:80 {"service":"snake-game","timestamp":"2025-10-23T10:16:57.261Z"}
+[2025-10-23T10:16:57.267Z] info: Environment: production {"service":"snake-game","timestamp":"2025-10-23T10:16:57.264Z"}
+info: Data directory: ./data {"service":"snake-game","timestamp":"2025-10-23T10:16:57.265Z"}
+[2025-10-23T10:17:07.767Z] info: GET /index.html {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:17:07.766Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:21:57.281Z] /Users/yaguangzhang/cursor/sudoku/src/websocket/WebSocketManager.js:353
+      this.logger.error('Session cleanup error:', error);
+                  ^
+
+TypeError: Cannot read properties of undefined (reading 'error')
+    at WebSocketManager.cleanupExpiredSessions (/Users/yaguangzhang/cursor/sudoku/src/websocket/WebSocketManager.js:353:19)
+
+Node.js v20.2.0
+[2025-10-23T10:25:48.762Z] info: Server running on http://0.0.0.0:80 {"service":"snake-game","timestamp":"2025-10-23T10:25:48.758Z"}
+[2025-10-23T10:25:48.765Z] info: Environment: production {"service":"snake-game","timestamp":"2025-10-23T10:25:48.762Z"}
+info: Data directory: ./data {"service":"snake-game","timestamp":"2025-10-23T10:25:48.762Z"}
+[2025-10-23T10:28:15.024Z] info: HEAD / {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:15.023Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:28:19.357Z] info: GET / {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:19.356Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:28:36.545Z] info: GET / {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.544Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.603Z] info: GET /style.css {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.602Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.612Z] info: GET /js/main.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.612Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.622Z] info: GET /js/game.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.622Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.624Z] info: GET /js/auth.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.623Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.871Z] info: GET /js/config.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.871Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.872Z] info: GET /js/gameState.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.872Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.880Z] info: GET /js/audio.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.879Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.881Z] info: GET /js/snake.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.881Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.884Z] info: GET /js/food.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.883Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.885Z] info: GET /js/renderer.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.884Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.886Z] info: GET /js/ui.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.885Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:36.971Z] info: GET /favicon.svg {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:36.970Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:41.721Z] info: GET / {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:41.721Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:28:50.880Z] info: GET /login.html {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:50.879Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:28:50.890Z] info: GET /auth.css {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:28:50.889Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"}
+[2025-10-23T10:30:06.740Z] info: GET / {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:06.739Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:26.433Z] info: GET / {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:26.431Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:26.611Z] info: GET /style.css {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:26.610Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:26.614Z] info: GET /js/main.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:26.613Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:26.957Z] info: GET /js/game.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:26.956Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:26.957Z] info: GET /js/auth.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:26.957Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:27.001Z] info: GET /js/config.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:26.997Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:27.004Z] info: GET /js/gameState.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:27.003Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:27.010Z] info: GET /js/audio.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:27.010Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:27.011Z] info: GET /js/snake.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:27.011Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:27.013Z] info: GET /js/food.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:27.012Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:27.014Z] info: GET /js/renderer.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:27.013Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:27.024Z] info: GET /js/ui.js {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:27.023Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:27.300Z] info: GET /favicon.svg {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:30:27.298Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:30:48.768Z] /Users/yaguangzhang/cursor/sudoku/src/websocket/WebSocketManager.js:353
+      this.logger.error('Session cleanup error:', error);
+                  ^
+
+TypeError: Cannot read properties of undefined (reading 'error')
+    at WebSocketManager.cleanupExpiredSessions (/Users/yaguangzhang/cursor/sudoku/src/websocket/WebSocketManager.js:353:19)
+[2025-10-23T10:30:48.769Z] 
+Node.js v20.2.0
+[2025-10-23T10:31:43.898Z] info: Server running on http://0.0.0.0:80 {"service":"snake-game","timestamp":"2025-10-23T10:31:43.894Z"}
+[2025-10-23T10:31:43.900Z] info: Environment: production {"service":"snake-game","timestamp":"2025-10-23T10:31:43.897Z"}
+info: Data directory: ./data {"service":"snake-game","timestamp":"2025-10-23T10:31:43.898Z"}
+[2025-10-23T10:32:04.909Z] info: GET / {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:32:04.908Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:32:08.629Z] info: HEAD / {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:08.628Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:32:13.483Z] info: GET / {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:13.482Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:32:19.335Z] info: GET /api/health {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:19.335Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:32:25.525Z] info: GET /api/status {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:25.524Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:32:47.348Z] info: GET / {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:47.344Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:32:47.405Z] info: GET /style.css {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:47.394Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+info: GET /js/main.js {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:47.397Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:32:48.089Z] info: GET /js/game.js {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:48.083Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+info: GET /js/auth.js {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:48.085Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:32:48.109Z] info: GET /js/config.js {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:48.109Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:32:48.110Z] info: GET /js/gameState.js {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:48.110Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:32:48.112Z] info: GET /js/audio.js {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:48.112Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:32:48.115Z] info: GET /js/snake.js {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:48.114Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:32:48.118Z] info: GET /js/food.js {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:48.115Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+info: GET /js/renderer.js {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:48.116Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:32:48.137Z] info: GET /js/ui.js {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:48.136Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:32:48.407Z] info: GET /favicon.svg {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:32:48.406Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:33:42.540Z] info: GET / {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.539Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.551Z] info: GET /style.css {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.551Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.555Z] info: GET /js/main.js {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.554Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.573Z] info: GET /js/game.js {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.572Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.576Z] info: GET /js/auth.js {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.576Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.582Z] info: GET /js/config.js {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.581Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.588Z] info: GET /js/renderer.js {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.587Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.590Z] info: GET /js/ui.js {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.589Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.591Z] info: GET /js/gameState.js {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.590Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.591Z] info: GET /js/audio.js {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.591Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.592Z] info: GET /js/snake.js {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.591Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.592Z] info: GET /js/food.js {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.592Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:33:42.704Z] info: GET /favicon.svg {"ip":"172.20.10.1","service":"snake-game","timestamp":"2025-10-23T10:33:42.703Z","userAgent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1"}
+[2025-10-23T10:35:55.876Z] info: GET /login.html {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:35:55.874Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:35:56.019Z] info: GET /auth.css {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:35:56.018Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:36:43.910Z] /Users/yaguangzhang/cursor/sudoku/src/websocket/WebSocketManager.js:353
+      this.logger.error('Session cleanup error:', error);
+                  ^
+
+TypeError: Cannot read properties of undefined (reading 'error')
+    at WebSocketManager.cleanupExpiredSessions (/Users/yaguangzhang/cursor/sudoku/src/websocket/WebSocketManager.js:353:19)
+
+Node.js v20.2.0
+[2025-10-23T10:38:27.164Z] info: Server running on http://0.0.0.0:80 {"service":"snake-game","timestamp":"2025-10-23T10:38:27.160Z"}
+[2025-10-23T10:38:27.165Z] info: Environment: production {"service":"snake-game","timestamp":"2025-10-23T10:38:27.163Z"}
+info: Data directory: ./data {"service":"snake-game","timestamp":"2025-10-23T10:38:27.164Z"}
+[2025-10-23T10:38:45.093Z] info: POST /api/auth/login {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:38:45.092Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:38:52.389Z] info: POST /api/auth/register {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:38:52.389Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:39:21.390Z] info: POST /api/auth/login {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:39:21.389Z","userAgent":"curl/8.6.0"}
+[2025-10-23T10:39:33.775Z] info: GET /login.html {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:39:33.774Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:39:35.957Z] info: GET /login.html {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:39:35.956Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:39:44.354Z] info: GET /index.html {"ip":"172.20.10.4","service":"snake-game","timestamp":"2025-10-23T10:39:44.354Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[2025-10-23T10:40:31.456Z] info: GET /login.html {"ip":"127.0.0.1","service":"snake-game","timestamp":"2025-10-23T10:40:31.455Z","userAgent":"curl/8.6.0"}

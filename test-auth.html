@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>认证测试</title>
+</head>
+<body>
+    <h1>认证功能测试</h1>
+    <div id="test-results"></div>
+    
+    <script type="module">
+        import { BackendAuthManager } from './public/js/auth-backend.js';
+        
+        const results = document.getElementById('test-results');
+        
+        async function runTests() {
+            const authManager = new BackendAuthManager();
+            
+            // 等待初始化完成
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            results.innerHTML += '<h2>测试结果：</h2>';
+            
+            // 测试注册
+            try {
+                const registerResult = await authManager.register('testuser', 'test@example.com', '123456');
+                results.innerHTML += `<p>✅ 注册测试: ${registerResult ? '成功' : '失败'}</p>`;
+            } catch (error) {
+                results.innerHTML += `<p>❌ 注册测试失败: ${error.message}</p>`;
+            }
+            
+            // 测试登录
+            try {
+                const loginResult = await authManager.login('testuser', '123456');
+                results.innerHTML += `<p>✅ 登录测试: ${loginResult ? '成功' : '失败'}</p>`;
+            } catch (error) {
+                results.innerHTML += `<p>❌ 登录测试失败: ${error.message}</p>`;
+            }
+            
+            // 测试会话验证
+            try {
+                const verifyResult = await authManager.verifySession();
+                results.innerHTML += `<p>✅ 会话验证测试: ${verifyResult ? '成功' : '失败'}</p>`;
+            } catch (error) {
+                results.innerHTML += `<p>❌ 会话验证测试失败: ${error.message}</p>`;
+            }
+        }
+        
+        runTests();
+    </script>
+</body>
+</html>

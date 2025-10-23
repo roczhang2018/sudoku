@@ -609,3 +609,6 @@ export class BackendAuthManager {
     return hash.toString();
   }
 }
+
+// 初始化后端认证管理器
+const authManager = new BackendAuthManager();

@@ -1,0 +1,12 @@
+{
+  "username": "test2",
+  "email": "test2@example.com",
+  "passwordHash": "$2a$10$0xfUaDZZvphUrHtHOUV9qu.jBuO7vblXR1VkYYQYs6xp/OumR37tK",
+  "highScore": 0,
+  "gamesPlayed": 0,
+  "totalScore": 0,
+  "createdAt": "2025-10-23T10:38:52.473Z",
+  "id": "6febfca3-3f7b-478f-aac3-29092c5e510b",
+  "updatedAt": "2025-10-23T10:39:21.474Z",
+  "lastLogin": "2025-10-23T10:39:21.474Z"
+}
