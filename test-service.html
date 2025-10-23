@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>服务状态测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; }
+        .log { background: #f5f5f5; padding: 10px; margin: 10px 0; border-radius: 3px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>服务状态功能测试</h1>
+    
+    <div class="test-section">
+        <h3>1. 手动测试API调用</h3>
+        <button onclick="testApiCall()">测试API调用</button>
+        <div id="apiResult" class="log"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>2. 测试ServiceStatusManager</h3>
+        <button onclick="testServiceManager()">初始化ServiceStatusManager</button>
+        <div id="managerResult" class="log"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>3. 模拟按钮点击</h3>
+        <button id="testButton">🔄 测试按钮</button>
+        <div id="buttonResult" class="log"></div>
+    </div>
+
+    <script type="module">
+        import { ApiClient } from './public/js/api.js';
+        import { ServiceStatusManager } from './public/js/serviceStatus.js';
+        
+        window.testApiCall = async function() {
+            const result = document.getElementById('apiResult');
+            result.innerHTML = '正在测试API调用...';
+            
+            try {
+                const apiClient = new ApiClient();
+                const response = await apiClient.checkHealth();
+                result.innerHTML = `✅ API调用成功:<br>${JSON.stringify(response, null, 2)}`;
+            } catch (error) {
+                result.innerHTML = `❌ API调用失败:<br>${error.message}`;
+            }
+        };
+        
+        window.testServiceManager = function() {
+            const result = document.getElementById('managerResult');
+            result.innerHTML = '正在初始化ServiceStatusManager...';
+            
+            try {
+                // 创建临时的DOM元素用于测试
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = `
+                    <span id="statusIndicator">●</span>
+                    <span id="statusText">测试中...</span>
+                    <button id="refreshService">🔄 服务状态</button>
+                `;
+                document.body.appendChild(tempDiv);
+                
+                const manager = new ServiceStatusManager();
+                result.innerHTML = '✅ ServiceStatusManager 初始化成功';
+                
+                // 清理临时元素
+                setTimeout(() => {
+                    document.body.removeChild(tempDiv);
+                }, 1000);
+            } catch (error) {
+                result.innerHTML = `❌ ServiceStatusManager 初始化失败:<br>${error.message}`;
+            }
+        };
+        
+        // 测试按钮点击
+        document.getElementById('testButton').addEventListener('click', function() {
+            const result = document.getElementById('buttonResult');
+            result.innerHTML = '按钮被点击了！';
+            console.log('测试按钮被点击');
+        });
+    </script>
+</body>
+</html>

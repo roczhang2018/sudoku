@@ -21,9 +21,18 @@ export class ServiceStatusManager {
    * 初始化服务状态管理器
    */
   init() {
+    console.log('ServiceStatusManager 初始化中...');
+    console.log('刷新按钮元素:', this.refreshButton);
+    
     // 绑定刷新按钮事件
     if (this.refreshButton) {
-      this.refreshButton.addEventListener('click', () => this.checkServiceStatus());
+      this.refreshButton.addEventListener('click', () => {
+        console.log('刷新按钮被点击');
+        this.checkServiceStatus();
+      });
+      console.log('✅ 刷新按钮事件绑定成功');
+    } else {
+      console.error('❌ 找不到刷新按钮元素 (id: refreshService)');
     }
 
     // 页面加载时自动检查服务状态
@@ -42,7 +51,12 @@ export class ServiceStatusManager {
    * @param {boolean} silent - 是否静默检查（不显示加载状态）
    */
   async checkServiceStatus(silent = false) {
-    if (this.isChecking) return;
+    console.log('开始检查服务状态, silent:', silent);
+    
+    if (this.isChecking) {
+      console.log('正在检查中，跳过本次检查');
+      return;
+    }
     
     this.isChecking = true;
     
@@ -52,10 +66,12 @@ export class ServiceStatusManager {
     }
 
     try {
+      console.log('调用后端健康检查API...');
       // 尝试调用后端健康检查API
       const response = await this.apiClient.checkHealth();
+      console.log('后端响应:', response);
       
-      if (response && response.status === 'ok') {
+      if (response && (response.status === 'ok' || response.status === 'healthy')) {
         this.setStatus('online', '后端服务正常');
         console.log('✅ 后端服务状态正常');
       } else {
@@ -146,7 +162,4 @@ ${info.error ? `• 错误信息: ${info.error}` : ''}
   }
 }
 
-// 自动初始化服务状态管理器
-document.addEventListener('DOMContentLoaded', () => {
-  new ServiceStatusManager();
-});
+// 注意：ServiceStatusManager 在 main.js 中手动初始化
