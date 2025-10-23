@@ -10,7 +10,10 @@ import { UIManager } from './ui.js';
 
 // 主游戏类
 export class SnakeGame {
-  constructor() {
+  constructor(authManager, currentUser = null) {
+    this.authManager = authManager;
+    this.currentUser = currentUser;
+    this.isGuest = !currentUser; // 是否为游客模式
     this.gameState = new GameState();
     this.audioManager = new AudioManager();
     this.playerSnake = new Snake(10, 10, '#4CAF50');
@@ -22,7 +25,17 @@ export class SnakeGame {
 
   // 初始化游戏
   init() {
-    this.gameState.loadHighScore();
+    // 显示用户信息
+    this.updateUserInfo();
+    
+    // 加载用户最高分（仅登录用户）
+    if (!this.isGuest && this.currentUser) {
+      this.gameState.highScore = this.currentUser.highScore || 0;
+    } else {
+      // 游客模式，从本地存储加载临时最高分
+      this.gameState.highScore = parseInt(localStorage.getItem('guestHighScore') || '0', 10);
+    }
+    
     this.audioManager.init();
     this.uiManager.bindEvents(this);
     
@@ -245,7 +258,9 @@ export class SnakeGame {
       
       // 更新最高分
       this.gameState.updateHighScore();
-      this.gameState.saveHighScore();
+      
+      // 更新用户数据
+      this.updateUserStats();
       
       this.updateUI();
     }
@@ -263,6 +278,55 @@ export class SnakeGame {
     this.uiManager.setDifficulty(this.gameState.getDifficulty());
   }
 
+  // 更新用户信息显示
+  updateUserInfo() {
+    const welcomeText = document.getElementById('welcomeText');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    
+    if (this.isGuest) {
+      // 游客模式
+      if (welcomeText) {
+        welcomeText.textContent = '欢迎，游客';
+      }
+      if (loginBtn) {
+        loginBtn.style.display = 'inline-block';
+      }
+      if (logoutBtn) {
+        logoutBtn.style.display = 'none';
+      }
+    } else {
+      // 登录用户模式
+      if (welcomeText) {
+        welcomeText.textContent = `欢迎，${this.currentUser.username}`;
+      }
+      if (loginBtn) {
+        loginBtn.style.display = 'none';
+      }
+      if (logoutBtn) {
+        logoutBtn.style.display = 'inline-block';
+      }
+    }
+  }
+
+  // 更新用户统计数据
+  updateUserStats() {
+    if (this.isGuest) {
+      // 游客模式，保存到本地存储
+      localStorage.setItem('guestHighScore', this.gameState.highScore.toString());
+    } else if (this.currentUser) {
+      // 登录用户，更新用户数据
+      const userStats = {
+        highScore: this.gameState.highScore,
+        gamesPlayed: (this.currentUser.gamesPlayed || 0) + 1,
+        totalScore: (this.currentUser.totalScore || 0) + this.gameState.score
+      };
+      
+      this.authManager.updateUser(userStats);
+      this.currentUser = this.authManager.getCurrentUser();
+    }
+  }
+
   // 更新UI
   updateUI() {
     this.uiManager.updateButtonStates(this.gameState.getState());
@@ -278,7 +342,8 @@ export class SnakeGame {
       this.gameState.lives,
       this.gameState.score,
       this.gameState.aiScore,
-      this.foodManager.getFoodCount()
+      this.foodManager.getFoodCount(),
+      this.isGuest
     );
   }
 }

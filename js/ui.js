@@ -71,12 +71,13 @@ export class UIManager {
   }
 
   // 更新状态文本
-  updateStatusText(gameState, infiniteMode, lives, score, aiScore, foodCount) {
+  updateStatusText(gameState, infiniteMode, lives, score, aiScore, foodCount, isGuest = false) {
     const modeText = infiniteMode ? '边界可循环穿越！' : '经典模式，撞墙会死亡！';
+    const guestText = isGuest ? ' 💡 注册登录可保存游戏成绩和个人记录！' : '';
     
     switch (gameState) {
       case GAME_STATES.NOT_STARTED:
-        this.elements.statusEl.textContent = `欢迎来到贪吃蛇对战！音乐已开始播放，按开始游戏开始，使用方向键控制。与AI蛇比赛！棋盘上有3-5个食物，全部吃完后重新分配！${modeText}`;
+        this.elements.statusEl.textContent = `欢迎来到贪吃蛇对战！音乐已开始播放，按开始游戏开始，使用方向键控制。与AI蛇比赛！棋盘上有3-5个食物，全部吃完后重新分配！${modeText}${guestText}`;
         break;
       case GAME_STATES.PLAYING:
         this.elements.statusEl.textContent = `游戏进行中，使用方向键控制，空格键暂停。与AI蛇比赛！当前有${foodCount}个食物！${modeText}`;
@@ -90,7 +91,7 @@ export class UIManager {
         break;
       case GAME_STATES.GAME_OVER:
         const winner = score > aiScore ? '玩家获胜！' : score < aiScore ? 'AI获胜！' : '平局！';
-        this.elements.statusEl.textContent = `游戏结束！${winner} 玩家：${score}，AI：${aiScore}，最高分：${highScore}。${modeText}`;
+        this.elements.statusEl.textContent = `游戏结束！${winner} 玩家：${score}，AI：${aiScore}，最高分：${highScore}。${modeText}${guestText}`;
         break;
     }
   }
