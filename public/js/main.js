@@ -2,6 +2,7 @@
 
 import { SnakeGame } from './game.js';
 import { AuthManager } from './auth.js';
+import { ServiceStatusManager } from './serviceStatus.js';
 
 // 等待DOM加载完成后初始化游戏
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 初始化游戏（支持游客模式）
   const game = new SnakeGame(authManager, currentUser);
   game.init();
+  
+  // 初始化服务状态管理器
+  const serviceStatusManager = new ServiceStatusManager();
   
   // 绑定登录按钮
   document.getElementById('loginBtn').addEventListener('click', () => {
