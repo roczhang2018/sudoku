@@ -51,6 +51,9 @@ let backgroundMusic = null;
 let musicGain = null;
 let soundGain = null;
 
+// 游戏模式
+let infiniteMode = true; // 无限循环模式
+
 // 蛇身颜色数组
 const SNAKE_COLORS = [
   '#4CAF50', // 绿色
@@ -80,6 +83,7 @@ const livesEl = document.getElementById('lives');
 const statusEl = document.getElementById('status');
 const musicToggle = document.getElementById('musicToggle');
 const soundToggle = document.getElementById('soundToggle');
+const infiniteToggle = document.getElementById('infiniteToggle');
 
 // 初始化
 function init() {
@@ -132,6 +136,7 @@ function bindEvents() {
   speedSlider.addEventListener('input', changeSpeed);
   musicToggle.addEventListener('click', toggleMusic);
   soundToggle.addEventListener('click', toggleSound);
+  infiniteToggle.addEventListener('click', toggleInfiniteMode);
   
   // 键盘事件
   document.addEventListener('keydown', handleKeyPress);
@@ -224,6 +229,40 @@ function toggleSound() {
   soundEnabled = !soundEnabled;
   soundToggle.textContent = soundEnabled ? '🔊 音效: 开' : '🔊 音效: 关';
   soundToggle.classList.toggle('active', soundEnabled);
+}
+
+// 切换无限循环模式
+function toggleInfiniteMode() {
+  infiniteMode = !infiniteMode;
+  infiniteToggle.textContent = infiniteMode ? '🔄 无限循环: 开' : '🔄 无限循环: 关';
+  infiniteToggle.classList.toggle('active', infiniteMode);
+  
+  // 更新状态提示
+  updateStatusText();
+}
+
+// 更新状态文本
+function updateStatusText() {
+  const modeText = infiniteMode ? '边界可循环穿越！' : '经典模式，撞墙会死亡！';
+  
+  switch (gameState) {
+    case GAME_STATES.NOT_STARTED:
+      statusEl.textContent = `欢迎来到贪吃蛇！音乐已开始播放，按开始游戏开始，使用方向键控制。${modeText}`;
+      break;
+    case GAME_STATES.PLAYING:
+      statusEl.textContent = `游戏进行中，使用方向键控制，空格键暂停。${modeText}`;
+      break;
+    case GAME_STATES.PAUSED:
+      if (lives < 3) {
+        statusEl.textContent = `失去一条生命！剩余生命：${lives}，点击继续重新开始。${modeText}`;
+      } else {
+        statusEl.textContent = `游戏已暂停，点击继续或按空格键继续。${modeText}`;
+      }
+      break;
+    case GAME_STATES.GAME_OVER:
+      statusEl.textContent = `游戏结束！最终分数：${score}，最高分：${highScore}。${modeText}`;
+      break;
+  }
 }
 
 // 播放音效
@@ -433,10 +472,32 @@ function gameStep() {
   head.x += currentDirection.x;
   head.y += currentDirection.y;
   
-  // 检查碰撞
-  if (checkCollision(head)) {
-    gameOver();
-    return;
+  // 根据无限循环模式处理边界
+  if (infiniteMode) {
+    // 无限循环模式 - 从一边出来从另一边进入
+    if (head.x < 0) {
+      head.x = GRID_SIZE - 1; // 从右边出来
+    } else if (head.x >= GRID_SIZE) {
+      head.x = 0; // 从左边出来
+    }
+    
+    if (head.y < 0) {
+      head.y = GRID_SIZE - 1; // 从下边出来
+    } else if (head.y >= GRID_SIZE) {
+      head.y = 0; // 从上边出来
+    }
+    
+    // 只检查自身碰撞
+    if (checkSelfCollision(head)) {
+      gameOver();
+      return;
+    }
+  } else {
+    // 经典模式 - 检查边界碰撞
+    if (checkCollision(head)) {
+      gameOver();
+      return;
+    }
   }
   
   // 添加新头部
@@ -468,7 +529,7 @@ function gameStep() {
   render();
 }
 
-// 检查碰撞
+// 检查碰撞（经典模式）
 function checkCollision(head) {
   // 检查墙壁碰撞
   if (head.x < 0 || head.x >= GRID_SIZE || head.y < 0 || head.y >= GRID_SIZE) {
@@ -476,6 +537,11 @@ function checkCollision(head) {
   }
   
   // 检查自身碰撞
+  return snake.some(segment => segment.x === head.x && segment.y === head.y);
+}
+
+// 检查自身碰撞（无限循环模式）
+function checkSelfCollision(head) {
   return snake.some(segment => segment.x === head.x && segment.y === head.y);
 }
 
@@ -575,6 +641,56 @@ function render() {
     ctx.stroke();
   }
   
+  // 只在无限循环模式下绘制循环边界指示箭头
+  if (infiniteMode) {
+    ctx.strokeStyle = '#4CAF50';
+    ctx.lineWidth = 3;
+    ctx.fillStyle = '#4CAF50';
+    
+    // 左右边界箭头
+    const arrowSize = 8;
+    for (let i = 0; i < GRID_SIZE; i += 4) {
+      const y = i * CELL_SIZE + CELL_SIZE / 2;
+      
+      // 左边界箭头 (→)
+      ctx.beginPath();
+      ctx.moveTo(5, y);
+      ctx.lineTo(5 + arrowSize, y - arrowSize/2);
+      ctx.lineTo(5 + arrowSize, y + arrowSize/2);
+      ctx.closePath();
+      ctx.fill();
+      
+      // 右边界箭头 (←)
+      ctx.beginPath();
+      ctx.moveTo(CANVAS_SIZE - 5, y);
+      ctx.lineTo(CANVAS_SIZE - 5 - arrowSize, y - arrowSize/2);
+      ctx.lineTo(CANVAS_SIZE - 5 - arrowSize, y + arrowSize/2);
+      ctx.closePath();
+      ctx.fill();
+    }
+    
+    // 上下边界箭头
+    for (let i = 0; i < GRID_SIZE; i += 4) {
+      const x = i * CELL_SIZE + CELL_SIZE / 2;
+      
+      // 上边界箭头 (↓)
+      ctx.beginPath();
+      ctx.moveTo(x, 5);
+      ctx.lineTo(x - arrowSize/2, 5 + arrowSize);
+      ctx.lineTo(x + arrowSize/2, 5 + arrowSize);
+      ctx.closePath();
+      ctx.fill();
+      
+      // 下边界箭头 (↑)
+      ctx.beginPath();
+      ctx.moveTo(x, CANVAS_SIZE - 5);
+      ctx.lineTo(x - arrowSize/2, CANVAS_SIZE - 5 - arrowSize);
+      ctx.lineTo(x + arrowSize/2, CANVAS_SIZE - 5 - arrowSize);
+      ctx.closePath();
+      ctx.fill();
+    }
+  }
+  
   // 绘制蛇
   snake.forEach((segment, index) => {
     if (index === 0) {
@@ -618,7 +734,6 @@ function updateUI() {
       startBtn.disabled = false;
       pauseBtn.disabled = true;
       restartBtn.disabled = false;
-      statusEl.textContent = '欢迎来到贪吃蛇！音乐已开始播放，按开始游戏开始，使用方向键控制';
       break;
     case GAME_STATES.PLAYING:
       startBtn.textContent = '游戏中';
@@ -626,7 +741,6 @@ function updateUI() {
       pauseBtn.textContent = '暂停';
       pauseBtn.disabled = false;
       restartBtn.disabled = false;
-      statusEl.textContent = '游戏进行中，使用方向键控制，空格键暂停';
       break;
     case GAME_STATES.PAUSED:
       startBtn.textContent = '继续';
@@ -634,18 +748,12 @@ function updateUI() {
       pauseBtn.textContent = '已暂停';
       pauseBtn.disabled = true;
       restartBtn.disabled = false;
-      if (lives < 3) {
-        statusEl.textContent = `失去一条生命！剩余生命：${lives}，点击继续重新开始`;
-      } else {
-        statusEl.textContent = '游戏已暂停，点击继续或按空格键继续';
-      }
       break;
     case GAME_STATES.GAME_OVER:
       startBtn.textContent = '重新开始';
       startBtn.disabled = false;
       pauseBtn.disabled = true;
       restartBtn.disabled = false;
-      statusEl.textContent = `游戏结束！最终分数：${score}，最高分：${highScore}`;
       break;
   }
   
@@ -653,6 +761,9 @@ function updateUI() {
   currentScoreEl.textContent = score;
   highScoreEl.textContent = highScore;
   livesEl.textContent = lives;
+  
+  // 更新状态文本
+  updateStatusText();
 }
 
 // 保存最高分

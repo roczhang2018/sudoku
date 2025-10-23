@@ -19,8 +19,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Aria
 .score-item span:first-child{font-size:14px;color:#666}
 .score-item span:last-child{font-size:20px;font-weight:bold;color:#333}
 .status{margin-top:12px;min-height:24px;font-size:16px;color:#666}
-.audio-controls{display:flex;gap:8px;justify-content:center;margin-top:12px}
-.audio-controls button{padding:6px 12px;border:1px solid #ccc;background:#fff;border-radius:6px;cursor:pointer;font-size:12px;display:flex;align-items:center;gap:4px}
+.audio-controls{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.audio-controls button{padding:6px 10px;border:1px solid #ccc;background:#fff;border-radius:6px;cursor:pointer;font-size:11px;display:flex;align-items:center;gap:3px;min-width:80px;justify-content:center}
 .audio-controls button:hover{background:#f3f3f3}
 .audio-controls button.active{background:#4CAF50;color:#fff;border-color:#4CAF50}
 @media (max-width:480px){body{padding:12px}.controls{flex-direction:column;align-items:center}.controls button{width:120px}.score-panel{flex-direction:column;gap:12px;min-width:200px}.audio-controls{flex-direction:column;align-items:center}}
