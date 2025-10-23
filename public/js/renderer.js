@@ -140,8 +140,10 @@ export class Renderer {
     // 绘制玩家蛇
     this.drawSnake(playerSnake, playerSnake.color);
     
-    // 绘制AI蛇
-    this.drawSnake(aiSnake, aiSnake.color);
+    // 只在无限循环模式下绘制AI蛇
+    if (aiSnake) {
+      this.drawSnake(aiSnake, aiSnake.color);
+    }
     
     // 绘制食物
     this.drawFoods(foods);

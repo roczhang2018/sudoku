@@ -63,35 +63,47 @@ export class UIManager {
   }
 
   // 更新分数显示
-  updateScore(score, aiScore, highScore, lives) {
+  updateScore(score, aiScore, highScore, lives, infiniteMode = true) {
     this.elements.currentScoreEl.textContent = score;
-    this.elements.aiScoreEl.textContent = aiScore;
     this.elements.highScoreEl.textContent = highScore;
     this.elements.livesEl.textContent = lives;
+    
+    // 只在无限循环模式下显示AI分数
+    if (infiniteMode) {
+      this.elements.aiScoreEl.textContent = aiScore;
+      this.elements.aiScoreEl.parentElement.style.display = 'block';
+    } else {
+      this.elements.aiScoreEl.parentElement.style.display = 'none';
+    }
   }
 
   // 更新状态文本
   updateStatusText(gameState, infiniteMode, lives, score, aiScore, foodCount, isGuest = false) {
     const modeText = infiniteMode ? '边界可循环穿越！' : '经典模式，撞墙会死亡！';
     const guestText = isGuest ? ' 💡 注册登录可保存游戏成绩和个人记录！' : '';
+    const aiText = infiniteMode ? '与AI蛇比赛！' : '';
     
     switch (gameState) {
       case GAME_STATES.NOT_STARTED:
-        this.elements.statusEl.textContent = `欢迎来到贪吃蛇对战！音乐已开始播放，按开始游戏开始，使用方向键控制。与AI蛇比赛！棋盘上有3-5个食物，全部吃完后重新分配！${modeText}${guestText}`;
+        this.elements.statusEl.textContent = `欢迎来到贪吃蛇游戏！音乐已开始播放，按开始游戏开始，使用方向键控制。${aiText}棋盘上有3-5个食物，全部吃完后重新分配！${modeText}${guestText}`;
         break;
       case GAME_STATES.PLAYING:
-        this.elements.statusEl.textContent = `游戏进行中，使用方向键控制，空格键暂停。与AI蛇比赛！当前有${foodCount}个食物！${modeText}`;
+        this.elements.statusEl.textContent = `游戏进行中，使用方向键控制，空格键暂停。${aiText}当前有${foodCount}个食物！${modeText}`;
         break;
       case GAME_STATES.PAUSED:
         if (lives < 3) {
-          this.elements.statusEl.textContent = `失去一条生命！剩余生命：${lives}，点击继续重新开始。与AI蛇比赛！${modeText}`;
+          this.elements.statusEl.textContent = `失去一条生命！剩余生命：${lives}，点击继续重新开始。${aiText}${modeText}`;
         } else {
-          this.elements.statusEl.textContent = `游戏已暂停，点击继续或按空格键继续。与AI蛇比赛！${modeText}`;
+          this.elements.statusEl.textContent = `游戏已暂停，点击继续或按空格键继续。${aiText}${modeText}`;
         }
         break;
       case GAME_STATES.GAME_OVER:
-        const winner = score > aiScore ? '玩家获胜！' : score < aiScore ? 'AI获胜！' : '平局！';
-        this.elements.statusEl.textContent = `游戏结束！${winner} 玩家：${score}，AI：${aiScore}，最高分：${highScore}。${modeText}${guestText}`;
+        if (infiniteMode) {
+          const winner = score > aiScore ? '玩家获胜！' : score < aiScore ? 'AI获胜！' : '平局！';
+          this.elements.statusEl.textContent = `游戏结束！${winner} 玩家：${score}，AI：${aiScore}，最高分：${highScore}。${modeText}${guestText}`;
+        } else {
+          this.elements.statusEl.textContent = `游戏结束！玩家得分：${score}，最高分：${highScore}。${modeText}${guestText}`;
+        }
         break;
     }
   }

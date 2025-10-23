@@ -32,8 +32,8 @@ export class FoodManager {
         attempts < maxAttempts && (
           // 检查是否与玩家蛇身重叠
           playerSnake.segments.some(segment => segment.x === newFood.x && segment.y === newFood.y) ||
-          // 检查是否与AI蛇身重叠
-          aiSnake.segments.some(segment => segment.x === newFood.x && segment.y === newFood.y) ||
+          // 检查是否与AI蛇身重叠（如果AI蛇存在）
+          (aiSnake && aiSnake.segments.some(segment => segment.x === newFood.x && segment.y === newFood.y)) ||
           // 检查是否与其他食物重叠
           this.foods.some(food => food.x === newFood.x && food.y === newFood.y)
         )

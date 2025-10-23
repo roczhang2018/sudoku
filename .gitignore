@@ -79,7 +79,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public - 我们的前端文件在public目录中，需要跟踪
 
 # Storybook build outputs
 .out

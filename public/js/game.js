@@ -48,7 +48,7 @@ export class SnakeGame {
     this.uiManager.setDifficulty(this.gameState.getDifficulty());
     
     // 生成初始食物
-    this.foodManager.generateFood(this.playerSnake, this.aiSnake);
+    this.foodManager.generateFood(this.playerSnake, this.gameState.getInfiniteMode() ? this.aiSnake : null);
     
     // 初始化UI状态
     this.uiManager.updateMusicButton(this.audioManager.isMusicEnabled());
@@ -197,7 +197,7 @@ export class SnakeGame {
       
       // 如果所有食物都被吃掉，生成新食物
       if (this.foodManager.shouldGenerateNewFood()) {
-        this.foodManager.generateFood(this.playerSnake, this.aiSnake);
+        this.foodManager.generateFood(this.playerSnake, this.gameState.getInfiniteMode() ? this.aiSnake : null);
       }
       
       // 增加速度（基于当前速度设置）
@@ -216,20 +216,22 @@ export class SnakeGame {
       this.playerSnake.removeTail();
     }
     
-    // 移动AI蛇
-    const aiResult = this.aiSnake.moveAI(this.foodManager.getFoods(), infiniteMode);
-    if (aiResult && aiResult.type === 'eat') {
-      this.gameState.addAiScore(10);
-      this.foodManager.removeFood(aiResult.foodIndex);
-      
-      // 如果所有食物都被吃掉，生成新食物
-      if (this.foodManager.shouldGenerateNewFood()) {
-        this.foodManager.generateFood(this.playerSnake, this.aiSnake);
+    // 只在无限循环模式下移动AI蛇
+    if (infiniteMode) {
+      const aiResult = this.aiSnake.moveAI(this.foodManager.getFoods(), infiniteMode);
+      if (aiResult && aiResult.type === 'eat') {
+        this.gameState.addAiScore(10);
+        this.foodManager.removeFood(aiResult.foodIndex);
+        
+        // 如果所有食物都被吃掉，生成新食物
+        if (this.foodManager.shouldGenerateNewFood()) {
+          this.foodManager.generateFood(this.playerSnake, this.gameState.getInfiniteMode() ? this.aiSnake : null);
+        }
       }
     }
     
     this.updateUI();
-    this.renderer.render(this.playerSnake, this.aiSnake, this.foodManager.getFoods(), infiniteMode);
+    this.renderer.render(this.playerSnake, infiniteMode ? this.aiSnake : null, this.foodManager.getFoods(), infiniteMode);
   }
 
   // 游戏结束
@@ -244,7 +246,7 @@ export class SnakeGame {
       // 重置蛇的位置和方向
       this.playerSnake.reset(10, 10);
       this.aiSnake.reset(30, 10);
-      this.foodManager.generateFood(this.playerSnake, this.aiSnake);
+      this.foodManager.generateFood(this.playerSnake, this.gameState.getInfiniteMode() ? this.aiSnake : null);
       
       // 重置颜色
       this.gameState.colorIndex = 0;
@@ -283,7 +285,7 @@ export class SnakeGame {
     this.playerSnake.reset(10, 10);
     this.aiSnake.reset(30, 10);
     this.gameState.reset();
-    this.foodManager.generateFood(this.playerSnake, this.aiSnake);
+    this.foodManager.generateFood(this.playerSnake, this.gameState.getInfiniteMode() ? this.aiSnake : null);
     
     const config = DIFFICULTY_CONFIG[this.gameState.getDifficulty()];
     this.gameState.setSpeed(config.baseSpeed);
@@ -346,7 +348,8 @@ export class SnakeGame {
       this.gameState.score,
       this.gameState.aiScore,
       this.gameState.highScore,
-      this.gameState.lives
+      this.gameState.lives,
+      this.gameState.getInfiniteMode()
     );
     this.uiManager.updateStatusText(
       this.gameState.getState(),
